@@ -1,0 +1,28 @@
+.btn-custom-blue {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+}
+.btn-custom-green {
+    background-color: #28A745;
+    color: white;
+    border: none;
+}
+.btn-custom-orange {
+    background-color: #FD7E14;
+    color: white;
+    border: none;
+}
+.btn-custom-purple {
+    background-color: #6F42C1;
+    color: white;
+    border: none;
+}
+.btn-custom-pink {
+    background-color: #E83E8C;
+    color: white;
+    border: none;
+}
+.btn-custom:hover {
+    filter: brightness(85%);
+}
