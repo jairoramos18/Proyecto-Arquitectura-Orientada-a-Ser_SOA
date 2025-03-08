@@ -1,28 +1,42 @@
-.btn-custom-blue {
-    background-color: #007BFF;
-    color: white;
-    border: none;
+body {
+    background-color: #1a74ce;
+    font-family: Arial, sans-serif;
 }
-.btn-custom-green {
-    background-color: #28A745;
-    color: white;
-    border: none;
+.featured-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 40px;
 }
-.btn-custom-orange {
-    background-color: #FD7E14;
-    color: white;
-    border: none;
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
 }
-.btn-custom-purple {
-    background-color: #6F42C1;
-    color: white;
-    border: none;
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-.btn-custom-pink {
-    background-color: #E83E8C;
-    color: white;
-    border: none;
+.product-image {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
-.btn-custom:hover {
-    filter: brightness(85%);
+.product-info {
+    padding: 15px;
+    background: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.star-rating {
+    color: gold;
+}
+
+.carousel-item img {
+    width: 50% !important; /* Reduce al 50% */
+    height: auto; /* Mantiene la proporción */
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
 }
