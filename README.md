@@ -1,59 +1,66 @@
-# LoginJairo
+# Documentación del Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## Configuración del Entorno
 
-## Development server
+Para ejecutar el frontend del proyecto con Angular, sigue estos pasos:
 
-To start a local development server, run:
+### Requisitos Previos
+Antes de crear un proyecto con Angular, es necesario contar con Node.js instalado en el sistema.
 
-```bash
+- Tener instalado Node.js (versión recomendada: 18.x o superior).
+- Luego instalar Angular CLI globalmente con el siguiente comando:
+  ```sh
+  npm install -g @angular/cli
+  ```
+- Usar un editor de código recomendado: VS Code, Sublime Text, etc.
+
+### Instalación y Ejecución
+Para instalar Angular, dirigirse a la página oficial de Angular, donde se encuentran los comandos y pasos a seguir para la instalación. Luego de instalar Angular CLI con:
+```sh
+npm install -g @angular/cli
+```
+Abrir la carpeta generada con el proyecto Angular, ejecutar `code .` en la terminal y ya se tendrá todo el entorno listo.
+
+### Instalar dependencias
+Para instalar las dependencias faltantes del proyecto, ejecutar:
+```sh
+npm install
+```
+
+### Ejecutar el servidor de desarrollo
+Para iniciar el servidor de Angular, ejecutar:
+```sh
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías Utilizadas
+El frontend está desarrollado con las siguientes tecnologías:
 
-## Code scaffolding
+- **Angular** (Framework principal)
+- **TypeScript** (Lenguaje de programación)
+- **HTML5** (Estructura del frontend)
+- **CSS3** (Estilos y diseño visual)
+- **Bootstrap** (Para el diseño responsivo y moderno)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Estructura de Carpetas
+La estructura del frontend está organizada de la siguiente manera:
 
-```bash
-ng generate component component-name
+![Estructura de Carpetas](../Docs/{81DBFE20-8B0E-4D34-80E6-BCA28F1EC606}.png)
+
+
+
+## Creación del Componente de Login
+En el desarrollo del frontend, se creó un componente llamado `Login` para manejar la autenticación de usuarios.
+
+### Creación del Componente
+El componente se generó con el siguiente comando:
+```sh
+ng generate component login
 ```
+Esto creó los archivos:
+- `login.component.ts` (Lógica del componente)
+- `login.component.html` (Vista del formulario de login)
+- `login.component.css` (Estilos del login)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Conclusión
+Esta documentación describe la configuración del frontend, las tecnologías utilizadas y la estructura del proyecto. Además, se explicó la creación del componente Login, que permite a los usuarios autenticarse en el sistema.
