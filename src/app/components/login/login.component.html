@@ -1,92 +1,61 @@
-<!DOCTYPE html>
-<html lang="es">
+<div
+	class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos Destacados</title>
-   <link rel="stylesheet" href="login.component.css">
-</head>
+<div class="relative min-h-screen flex justify-center bg-transparent rounded-3xl shadow-xl">
+	<div class="flex justify-center self-center z-10">
+		<div class="p-12 bg-white mx-auto rounded-3xl w-96">
+			<div class="mb-7">
+				<h3 class="font-semibold text-2xl text-gray-800">Iniciar sesión</h3>
+				<p class="text-gray-400">
+					¿No tienes una cuenta?
+					<a class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-300" href="/register">
+						Regístrate
+					</a>
+				</p>
+			</div>
 
-<body class="bg-gray-100">
-    <!-- Navbar -->
-    <nav class=  " bg-green-400  text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a class="text-xl font-bold" href="#">Caña Panelera</a>
-            <div class="space-x-4">
-                <a class="hover:text-gray-400" href="#">Inicio</a>
-                <a class="hover:text-gray-400" href="#nosotros">Sobre Nosotros</a>
-                <a class="hover:text-gray-400" href="#productos">Productos</a>
-                <a class="hover:text-gray-400" href="#contacto">Contacto</a>
-                <a class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" href="/login">Login</a>
-                <a class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded" href="/register">Registrarse</a>
-            </div>
-        </div>
-    </nav>
+			<!-- Formulario en Angular -->
+			<form [formGroup]="form" (ngSubmit)="onSubmit()">
+				<div class="space-y-6">
+					<!-- Campo Email -->
+					<input 
+						class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400"
+						type="email"
+						placeholder="Correo electrónico"
+						formControlName="email"
+					/>
 
-    <!-- Carrusel -->
-    <div class="w-full overflow-hidden relative">
-        <div class="flex w-full h-96">
-            <img src="https://ingenieria.uniandes.edu.co/sites/default/files/facultad-ingenieria/noticias/industria-panelera-mobile.jpg" class="w-full object-cover" alt="Caña Panelera">
-            <img src="https://elpilon.com.co/wp-content/uploads/2017/02/CA%C3%91A.jpg" class="w-full object-cover" alt="Campo de Caña">
-        </div>
-    </div>
+					<!-- Campo Contraseña -->
+					<input 
+						class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400"
+						type="password"
+						placeholder="Contraseña"
+						formControlName="password"
+					/>
 
-    <!-- Sobre Nosotros -->
-    <section id="nosotros" class="container mx-auto my-10 text-center px-4">
-        <h2 class="text-2xl font-bold">Sobre Nosotros</h2>
-        <p class="mt-2 text-gray-600">Somos una empresa comprometida con la producción sostenible de caña de azúcar.</p>
-    </section>
+					<!-- Botón de Iniciar sesión -->
+					<button type="submit" class="w-full flex justify-center bg-purple-800 hover:bg-purple-700 text-white p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500">
+						Iniciar sesión
+					</button>
+				</div>
+			</form>
 
-    <!-- Productos Destacados -->
-    <div id="productos" class="container mx-auto my-10 px-4">
-        <h2 class="text-2xl font-bold text-center mb-6">Productos Destacados</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
-                <img src="https://elpilon.com.co/wp-content/uploads/2017/02/CA%C3%91A.jpg" class="w-full h-48 object-cover rounded-md" alt="Producto 1">
-                <h5 class="text-lg font-bold mt-4">Gym Weight</h5>
-                <p class="text-gray-600">$240.00</p>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Comprar</button>
-            </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
-                <img src="https://ingenieria.uniandes.edu.co/sites/default/files/facultad-ingenieria/noticias/industria-panelera-mobile.jpg" class="w-full h-48 object-cover rounded-md" alt="Producto 2">
-                <h5 class="text-lg font-bold mt-4">Cloud Nike Shoes</h5>
-                <p class="text-gray-600">$480.00</p>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Comprar</button>
-            </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
-                <img src="https://fedepanela.org.co/gremio/wp-content/uploads/2021/04/Minagricultura-Identifico-mas-de-2.8-Millones-de-Hectareas-Cultivables-de-Cana-de-Azucar.png" class="w-full h-48 object-cover rounded-md" alt="Producto 3">
-                <h5 class="text-lg font-bold mt-4">Summer Adidas Shoes</h5>
-                <p class="text-gray-600">$360.00</p>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Comprar</button>
-            </div>
-        </div>
-    </div>
+			<!-- Separador -->
+			<div class="flex items-center justify-center space-x-2 my-5">
+				<span class="h-px w-16 bg-gray-300"></span>
+				<span class="text-gray-400 font-normal">o</span>
+				<span class="h-px w-16 bg-gray-300"></span>
+			</div>
 
-    <!-- Contacto -->
-    <section id="contacto" class="container mx-auto my-10 px-4">
-        <h2 class="text-2xl font-bold text-center mb-6">Contáctanos</h2>
-        <form class="max-w-lg mx-auto bg-white p-6 shadow-lg rounded-lg">
-            <div class="mb-4">
-                <label for="nombre" class="block text-gray-700">Nombre</label>
-                <input type="text" id="nombre" class="w-full p-2 border border-gray-300 rounded mt-1" required>
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700">Correo Electrónico</label>
-                <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded mt-1" required>
-            </div>
-            <div class="mb-4">
-                <label for="mensaje" class="block text-gray-700">Mensaje</label>
-                <textarea id="mensaje" rows="4" class="w-full p-2 border border-gray-300 rounded mt-1" required></textarea>
-            </div>
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded w-full">Enviar</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center p-4 mt-10">
-        <p>&copy; 2025 Caña Panelera | Todos los derechos reservados</p>
-    </footer>
-</body>
-
-</html>
+			<!-- Botón de Google -->
+			<div class="flex justify-center gap-5 w-full">
+				<button type="button" (click)="onClickGoogle()" 
+					class="w-full flex items-center justify-center border border-gray-300 hover:border-gray-900 hover:bg-gray-900 hover:text-white text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500">
+					<img src="https://www.svgrepo.com/download/243086/google.svg" class="w-4 mr-2" />
+					<span>Iniciar sesión con Google</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
