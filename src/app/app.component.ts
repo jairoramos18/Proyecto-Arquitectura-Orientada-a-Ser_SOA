@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { RouterOutlet, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent, RegisterComponent],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],  
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] // ✅ Corregido
 })
 export class AppComponent {
-  title = 'caña panelera';
+  title = 'Login_jairo';
+
+  constructor(private router: Router) {}
+
+  isAuthRoute(): boolean {
+    return this.router.url.includes('/login') || this.router.url.includes('/register');
+  }
 }

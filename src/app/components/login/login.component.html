@@ -1,128 +1,61 @@
-<!DOCTYPE html>
-<html lang="es">
+<div
+	class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos Destacados</title>
-    <link rel="stylesheet" href="login.component.css">
-</head>
+<div class="relative min-h-screen flex justify-center bg-transparent rounded-3xl shadow-xl">
+	<div class="flex justify-center self-center z-10">
+		<div class="p-12 bg-white mx-auto rounded-3xl w-96">
+			<div class="mb-7">
+				<h3 class="font-semibold text-2xl text-gray-800">Iniciar sesión</h3>
+				<p class="text-gray-400">
+					¿No tienes una cuenta?
+					<a class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-300" href="/register">
+						Regístrate
+					</a>
+				</p>
+			</div>
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Caña Panelera</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" routerLink="/">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Sobre Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    <button class="btn btn-primary me-3" routerLink="/login">Login</button>
-                    <button class="btn btn-success" routerLink="/register">Registrarse</button>
+			<!-- Formulario en Angular -->
+			<form [formGroup]="form" (ngSubmit)="onSubmit()">
+				<div class="space-y-6">
+					<!-- Campo Email -->
+					<input 
+						class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400"
+						type="email"
+						placeholder="Correo electrónico"
+						formControlName="email"
+					/>
 
-                </ul>
-            </div>
-        </div>
-    </nav>
+					<!-- Campo Contraseña -->
+					<input 
+						class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400"
+						type="password"
+						placeholder="Contraseña"
+						formControlName="password"
+					/>
 
- <br><br><br>
+					<!-- Botón de Iniciar sesión -->
+					<button type="submit" class="w-full flex justify-center bg-purple-800 hover:bg-purple-700 text-white p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500">
+						Iniciar sesión
+					</button>
+				</div>
+			</form>
 
-    <!-- Carrusel -->
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://ingenieria.uniandes.edu.co/sites/default/files/facultad-ingenieria/noticias/industria-panelera-mobile.jpg"
-                    class="d-block w-100 " alt="Caña Panelera">
-            </div>
-            <div class="carousel-item">
-                <img src="https://elpilon.com.co/wp-content/uploads/2017/02/CA%C3%91A.jpg" class="d-block w-100"
-                    alt="Campo de Caña">
-            </div>
-        </div>
-    </div>
+			<!-- Separador -->
+			<div class="flex items-center justify-center space-x-2 my-5">
+				<span class="h-px w-16 bg-gray-300"></span>
+				<span class="text-gray-400 font-normal">o</span>
+				<span class="h-px w-16 bg-gray-300"></span>
+			</div>
 
-    <!-- Sobre Nosotros -->
-    <section id="nosotros" class="container my-5 text-center">
-        <h2>Sobre Nosotros</h2>
-        <p>Somos una empresa comprometida con la producción sostenible de caña de azúcar.</p>
-    </section>
-
-    <!-- Productos Destacados -->
-    <div id="productos" class="container my-5">
-        <h2 class="text-center">Productos Destacados</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://elpilon.com.co/wp-content/uploads/2017/02/CA%C3%91A.jpg" class="card-img-top"
-                        alt="Producto 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Gym Weight</h5>
-                        <p>$240.00</p>
-                        <button class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://ingenieria.uniandes.edu.co/sites/default/files/facultad-ingenieria/noticias/industria-panelera-mobile.jpg"
-                        class="card-img-top" alt="Producto 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Cloud Nike Shoes</h5>
-                        <p>$480.00</p>
-                        <button class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://fedepanela.org.co/gremio/wp-content/uploads/2021/04/Minagricultura-Identifico-mas-de-2.8-Millones-de-Hectareas-Cultivables-de-Cana-de-Azucar.png"
-                        class="card-img-top" alt="Producto 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Summer Adidas Shoes</h5>
-                        <p>$360.00</p>
-                        <button class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contacto -->
-    <section id="contacto" class="container my-5">
-        <h2 class="text-center">Contáctanos</h2>
-        <form>
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Enviar</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center p-3">
-        <p>&copy; 2025 Caña Panelera | Todos los derechos reservados</p>
-    </footer>
-
-
-</body>
-
-</html>
-
+			<!-- Botón de Google -->
+			<div class="flex justify-center gap-5 w-full">
+				<button type="button" (click)="onClickGoogle()" 
+					class="w-full flex items-center justify-center border border-gray-300 hover:border-gray-900 hover:bg-gray-900 hover:text-white text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500">
+					<img src="https://www.svgrepo.com/download/243086/google.svg" class="w-4 mr-2" />
+					<span>Iniciar sesión con Google</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
