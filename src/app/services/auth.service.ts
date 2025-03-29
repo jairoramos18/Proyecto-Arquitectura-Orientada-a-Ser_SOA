@@ -3,35 +3,35 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
-    
+
     constructor() { }
 
-    getAuth(){
+    getAuth() {
         return getAuth();
     }
 
-    register(user: User){
+    register(user: User) {
         return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
     }
 
-    logIn(user: User){
+    logIn(user: User) {
         return signInWithEmailAndPassword(getAuth(), user.email, user.password);
     }
 
-    logInGoogle(){
+    logInGoogle() {
         return signInWithPopup(getAuth(), new GoogleAuthProvider());
     }
 
-    logLogout(){
-      return signOut(getAuth());
-  }
-  
-  isAuthenticated(): boolean {
-      const user = getAuth().currentUser;
-      return user !== null;
-  }
-  
+    logLogout() {
+        return signOut(getAuth());
+    }
+
+    isAuthenticated(): boolean {
+        const user = getAuth().currentUser;
+        return user !== null;
+    }
+
 }
