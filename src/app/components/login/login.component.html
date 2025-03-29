@@ -1,28 +1,58 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Moderno</title>
-    <link rel="stylesheet" href="login.component.css">
-    
-</head>
-<body>
+<div
+	class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+</div>
 
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <form>
-            <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Correo Electrónico" required>
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Contraseña" required>
-            </div>
-            <button type="submit" class="btn btn-custom w-100">Ingresar</button>
-            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-        </form>
-    </div>
+<div class="relative min-h-screen flex justify-center bg-transparent rounded-3xl shadow-xl">
+	<div class="flex justify-center self-center z-10">
+		<div class="p-12 bg-white mx-auto rounded-3xl w-96">
+			<div class="mb-7">
+				<h3 class="font-semibold text-2xl text-gray-800">Iniciar sesión</h3>
+				<p class="text-gray-400">
+					¿No tienes una cuenta?
+					<a class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-300" href="/register">
+						Regístrate
+					</a>
+				</p>
+			</div>
 
-    
-</body>
-</html>
+			<!-- Formulario en Angular -->
+			<form [formGroup]="form" (ngSubmit)="onSubmit()">
+				<div class="space-y-6">
+					<input 
+						class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400"
+						type="email"
+						placeholder="Correo electrónico"
+						formControlName="email"
+					/>
+
+					<input 
+						class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-400"
+						type="password"
+						placeholder="Contraseña"
+						formControlName="password"
+					/>
+
+					<!-- Botón de Iniciar sesión -->
+					<button type="submit" class="w-full flex justify-center bg-purple-800 hover:bg-purple-700 text-white p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500">
+						Iniciar sesión
+					</button>
+				</div>
+			</form>
+
+			<!-- Separador -->
+			<div class="flex items-center justify-center space-x-2 my-5">
+				<span class="h-px w-16 bg-gray-300"></span>
+				<span class="text-gray-400 font-normal">o</span>
+				<span class="h-px w-16 bg-gray-300"></span>
+			</div>
+
+			<div class="flex justify-center gap-5 w-full">
+				<button type="button" (click)="onClickGoogle()" 
+					class="w-full flex items-center justify-center border border-gray-300 hover:border-gray-900 hover:bg-gray-900 hover:text-white text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500">
+					<img src="https://www.svgrepo.com/download/243086/google.svg" class="w-4 mr-2" />
+					<span>Iniciar sesión con Google</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
