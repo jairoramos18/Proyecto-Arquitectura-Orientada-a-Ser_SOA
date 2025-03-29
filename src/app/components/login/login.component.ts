@@ -19,7 +19,7 @@ import { User } from '../../interfaces/user.interface';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export  class LoginComponent {
+export class LoginComponent {
   authService = inject(AuthService);
   router = inject(Router);
 
