@@ -11,12 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 //  Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCAySq1PccS54-Np6vzt0oGFMsDaOf5WHE",
-  authDomain: "proyecto-arqorser.firebaseapp.com",
-  projectId: "proyecto-arqorser",
-  storageBucket: "proyecto-arqorser.firebasestorage.app",
-  messagingSenderId: "683315320755",
-  appId: "1:683315320755:web:def0f2eed4d57247625dc6"
+  apiKey: "AIzaSyAnJGfEWNbNdJL4rYgf2vC_Pe-KTMEFX4c",
+  authDomain: "proyecto-arquitectura-5fb60.firebaseapp.com",
+  projectId: "proyecto-arquitectura-5fb60",
+  storageBucket: "proyecto-arquitectura-5fb60.firebasestorage.app",
+  messagingSenderId: "298645157196",
+  appId: "1:298645157196:web:91d41cea114aa13d354be9"
 };
 
 // Inicializar Firebase
