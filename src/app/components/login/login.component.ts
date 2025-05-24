@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { User } from '../../interfaces/user.interface';
+import { FacebookAuthProvider, signInWithPopup, getAuth } from 'firebase/auth'; // Corregido
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ import { User } from '../../interfaces/user.interface';
     MatButtonModule
   ] as const,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']  // Corregido de styleUrl a styleUrls
 })
 export class LoginComponent {
   authService = inject(AuthService);
@@ -40,6 +41,28 @@ export class LoginComponent {
 
   onClickGoogle() {
     this.authService.logInGoogle()
+      .then(resp => {
+        this.router.navigate(['/dashboard']);
+      })
+      .catch(error => console.log(error));
+  }
+
+  onClickFacebook(): void {
+    const auth = getAuth();  // Inicializa el objeto auth correctamente
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log('Usuario con Facebook:', user);
+        this.router.navigate(['/dashboard']); // Redirige al dashboard
+      })
+      .catch((error) => {
+        console.error('Error con Facebook:', error);
+      });
+  }
+
+   onClicklogInGitHub() {
+    this.authService.logInGitHub()
       .then(resp => {
         this.router.navigate(['/dashboard']);
       })

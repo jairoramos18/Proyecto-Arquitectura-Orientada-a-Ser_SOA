@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "proyecto-arquitectura-orientada-a-sersoa"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "proyecto-arquitectura-orientada-a-sersoa-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
