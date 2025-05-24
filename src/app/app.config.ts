@@ -11,7 +11,7 @@ import { routes } from './app.routes';
 
 // Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCg6UoOX2I8U-eGx9av5Q61h7IZuOFmAoY",
+  apiKey: "",
   authDomain: "agroca-60ba8.firebaseapp.com",
   projectId: "agroca-60ba8",
   storageBucket: "agroca-60ba8.firebasestorage.app",
