@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './guards.guard';
-
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -29,18 +28,6 @@ export const routes: Routes = [
       import('./dashboard/dashboard.component').then((m) => m.DashboardComponent), 
     canActivate: [AuthGuard], //  ruta con un AuthGuard 
   },
-  {
-  path: 'forgot-password',
-  loadComponent: () => import('./auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
-},
-
- {
-    path: 'usuarios',
-    loadComponent: () =>
-      import('./usuario/usuario.component').then((m) => m.UsuarioComponent),
-    
-  },
-
   {
     path: '**',
     redirectTo: 'home',
