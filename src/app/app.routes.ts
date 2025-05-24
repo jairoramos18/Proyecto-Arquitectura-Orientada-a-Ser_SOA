@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards.guard';
+
 
 export const routes: Routes = [
   {
@@ -32,6 +33,13 @@ export const routes: Routes = [
   path: 'forgot-password',
   loadComponent: () => import('./auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
 },
+
+ {
+    path: 'usuarios',
+    loadComponent: () =>
+      import('./usuario/usuario.component').then((m) => m.UsuarioComponent),
+    
+  },
 
   {
     path: '**',

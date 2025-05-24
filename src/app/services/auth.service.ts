@@ -1,52 +1,52 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
   signOut,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  GithubAuthProvider
 } from 'firebase/auth';
+import { Auth } from '@angular/fire/auth'; 
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor() {}
-
-  private getAuthInstance() {
-    return getAuth();
-  }
+  private auth = inject(Auth); 
 
   register(user: User) {
-    return createUserWithEmailAndPassword(this.getAuthInstance(), user.email, user.password);
+    return createUserWithEmailAndPassword(this.auth, user.email, user.password);
   }
 
   logIn(user: User) {
-    return signInWithEmailAndPassword(this.getAuthInstance(), user.email, user.password);
+    return signInWithEmailAndPassword(this.auth, user.email, user.password);
   }
 
   logInGoogle() {
-    return signInWithPopup(this.getAuthInstance(), new GoogleAuthProvider());
+    return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
 
   logInFacebook() {
-    return signInWithPopup(this.getAuthInstance(), new FacebookAuthProvider());
+    return signInWithPopup(this.auth, new FacebookAuthProvider());
+  }
+
+  logInGitHub() {
+    return signInWithPopup(this.auth, new GithubAuthProvider());
   }
 
   logLogout() {
-    return signOut(this.getAuthInstance());
+    return signOut(this.auth);
   }
 
   isAuthenticated(): boolean {
-    return this.getAuthInstance().currentUser !== null;
+    return this.auth.currentUser !== null;
   }
 
   sendPasswordReset(email: string) {
-    return sendPasswordResetEmail(this.getAuthInstance(), email);
+    return sendPasswordResetEmail(this.auth, email);
   }
 }

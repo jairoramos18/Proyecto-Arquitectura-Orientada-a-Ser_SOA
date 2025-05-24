@@ -60,4 +60,12 @@ export class LoginComponent {
         console.error('Error con Facebook:', error);
       });
   }
+
+   onClicklogInGitHub() {
+    this.authService.logInGitHub()
+      .then(resp => {
+        this.router.navigate(['/dashboard']);
+      })
+      .catch(error => console.log(error));
+  }
 }
