@@ -1,52 +1,37 @@
-import { Injectable, inject } from '@angular/core';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-  signOut,
-  sendPasswordResetEmail,
-  GithubAuthProvider
-} from 'firebase/auth';
-import { Auth } from '@angular/fire/auth'; 
+import { Injectable } from '@angular/core';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
-  private auth = inject(Auth); 
 
-  register(user: User) {
-    return createUserWithEmailAndPassword(this.auth, user.email, user.password);
-  }
+    constructor() { }
 
-  logIn(user: User) {
-    return signInWithEmailAndPassword(this.auth, user.email, user.password);
-  }
+    getAuth() {
+        return getAuth();
+    }
 
-  logInGoogle() {
-    return signInWithPopup(this.auth, new GoogleAuthProvider());
-  }
+    register(user: User) {
+        return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
+    }
 
-  logInFacebook() {
-    return signInWithPopup(this.auth, new FacebookAuthProvider());
-  }
+    logIn(user: User) {
+        return signInWithEmailAndPassword(getAuth(), user.email, user.password);
+    }
 
-  logInGitHub() {
-    return signInWithPopup(this.auth, new GithubAuthProvider());
-  }
+    logInGoogle() {
+        return signInWithPopup(getAuth(), new GoogleAuthProvider());
+    }
 
-  logLogout() {
-    return signOut(this.auth);
-  }
+    logLogout() {
+        return signOut(getAuth());
+    }
 
-  isAuthenticated(): boolean {
-    return this.auth.currentUser !== null;
-  }
+    isAuthenticated(): boolean {
+        const user = getAuth().currentUser;
+        return user !== null;
+    }
 
-  sendPasswordReset(email: string) {
-    return sendPasswordResetEmail(this.auth, email);
-  }
 }
