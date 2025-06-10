@@ -22,6 +22,7 @@ import Swal from 'sweetalert2'; // ¡Importar SweetAlert2!
   ] as const,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
+
 })
 export class LoginComponent {
   authService = inject(AuthService);
@@ -130,6 +131,7 @@ export class LoginComponent {
         }
       });
   }
+
 
   onClickFacebook(): void {
     // this.errorMessage = null; // Ya no es necesario
