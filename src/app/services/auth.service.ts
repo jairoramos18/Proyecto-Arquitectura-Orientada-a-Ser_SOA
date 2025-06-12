@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Injectable, inject } from '@angular/core';
 import {
   createUserWithEmailAndPassword,
@@ -19,15 +20,21 @@ import { map, catchError, switchMap, tap } from 'rxjs/operators'; // Importar 't
 
 // Importaciones para Firestore
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
+=======
+import { Injectable } from '@angular/core';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { User } from '../interfaces/user.interface';
+>>>>>>> d5f23dbee4d29c1518837fc2d6f4492f28cc08ba
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
   private auth = inject(Auth); 
   private auditoriaService = inject(AuditoriaService);
   private firestore = inject(Firestore); // Inyectar Firestore
 
+<<<<<<< HEAD
   // Función auxiliar para guardar el perfil de usuario en Firestore
   private async saveUserProfileToFirestore(uid: string, email: string, nombre: string | null, telefono: string | null): Promise<void> {
     const userProfileRef = doc(this.firestore, 'userProfiles', uid); // Colección 'userProfiles', ID del documento es el UID del usuario
@@ -170,4 +177,33 @@ export class AuthService {
   sendPasswordReset(email: string): Promise<void> {
     return sendPasswordResetEmail(this.auth, email);
   }
+=======
+    constructor() { }
+
+    getAuth() {
+        return getAuth();
+    }
+
+    register(user: User) {
+        return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
+    }
+
+    logIn(user: User) {
+        return signInWithEmailAndPassword(getAuth(), user.email, user.password);
+    }
+
+    logInGoogle() {
+        return signInWithPopup(getAuth(), new GoogleAuthProvider());
+    }
+
+    logLogout() {
+        return signOut(getAuth());
+    }
+
+    isAuthenticated(): boolean {
+        const user = getAuth().currentUser;
+        return user !== null;
+    }
+
+>>>>>>> d5f23dbee4d29c1518837fc2d6f4492f28cc08ba
 }

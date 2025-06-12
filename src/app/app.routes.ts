@@ -30,6 +30,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard], //  ruta con un AuthGuard 
   },
   {
+<<<<<<< HEAD
     path: 'forgot-password',
     loadComponent: () => import('./auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
   },
@@ -46,6 +47,8 @@ export const routes: Routes = [
    
   },
   {
+=======
+>>>>>>> d5f23dbee4d29c1518837fc2d6f4492f28cc08ba
     path: '**',
     redirectTo: 'home',
   },
